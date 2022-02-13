@@ -3,7 +3,7 @@
  */
 
 async function getShows(qStr){
-  let res = await axios.get(' https://api.tvmaze.com/search/shows', {params:{q: qStr}});
+  let res = await axios.get('https://api.tvmaze.com/search/shows', {params:{q: qStr}});
   let shows = []
   for(let entry of res.data) {
     shows.push({id: entry.show.id, name: entry.show.name, summary: entry.show.summary, episodesUrl: entry.show.url, image: entry.show.image ? entry.show.image.original : 'https://tinyurl.com/tv-missing'})
